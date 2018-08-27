@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.bannerbox{position:relative;
+					margin:0 auto;
+					width:600px;
+					height:300px;
+					overflow: hidden;
+				    }
+		.box1{width:3600px;
+			height:300px;
+		  }		    
+		img{height:300px;
+			width:600px;
+			vertical-align: top;
+			
+			float:left;
+			display: block;
+		  }	
+		  /*img:nth-child(2){margin-left:-600px;}*/
+		  .box2{position: absolute;
+		  		bottom: 5px;
+		  		width:100%;
+		  		text-align: center;}
+		  .box2 span{display: inline-block;
+		  			width:25px;
+		  			height:25px;
+		  			background-color: white;
+		  			border-radius:100%;
+		  			margin-left: 10px;
+		  			}	 
+		   #btnone,#btntwo{position: absolute;
+		   			top:50%;
+		   			margin-top:-15px;
+		             width:20px;
+		             height:30px;
+		            background-color: red;
+		            opacity: .6;
+		            text-align: center;
+		            line-height: 30px;
+		            color:#fff;}
+		    #btnone{left:0px;}
+		    #btntwo{right:0px;} 
+		    .current{opacity: .3;}       	
+		           		   
+	</style>
+	<script type="text/javascript" src="jQuery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		// is(':animated')  true/false
+		$(function(){
+				var w = $('img').width();
+				var nowimg = 0;
+				var count = $('img').length;
+				console.log(count);
+                $('.box1 img:first').clone().appendTo('.box1');
+				$('.box2 span').eq(0).addClass('current').siblings('span').removeClass('current');
+
+			$('#btntwo').click(function event(){
+				if (!$('.box1').is(':animated')){
+					if(nowimg<4){
+						nowimg++;
+					$('.box1').animate({'margin-left':-nowimg*w},1000)
+					
+					console.log(nowimg);
+				}else{
+					nowimg = 0;
+					$('.box1').animate({
+						'margin-left':-5*w
+					},1000,function(){
+						$('.box1').css('margin-left',0)
+					})
+					
+				}	
+				$('.box2 span').eq(nowimg).addClass('current').siblings().removeClass('current');
+			}
+			});
+
+
+			$('#btnone').click(function(){
+				if (!$('.box1').is(':animated')){
+					if(nowimg>0){
+						nowimg--;
+					$('.box1').animate({'margin-left':-nowimg*w},1000);
+					
+					console.log(nowimg);
+				}else{
+					nowimg = 4;
+					$('.box1').css({'margin-left':-5*w},1000);
+					$('.box1').animate({
+						'margin-left':-nowimg*w
+					},1000)
+					
+				}	
+				$('.box2 span').eq(nowimg).addClass('current').siblings().removeClass('current');
+			}
+			});
+
+
+			$('.box2 span').click(function(){
+				console.log($('.box2 span'),nowimg)
+				 if(!$('.box1').is(':animated')){
+				nowimg = $(this).index();
+				$('.box2 span').eq(nowimg).addClass('current').siblings().removeClass('current');
+				$('.box1').animate({'margin-left':-nowimg*w},1000)
+			}
+			})
+
+			var t = setInterval("$('#btntwo').click()",2000);
+
+			//鼠标进入盒子停止轮播；离开，继续轮播
+			//mouseover和mouseout
+			$('.bannerbox').mouseover(function(){
+				clearInterval(t);
+			}).mouseout(function(){
+				t = setInterval("$('#btntwo').click()",2000);
+			});
+
+});
+		</script>
+</head>
+<body>
+	<div class='bannerbox'>
+		<div class='box1'>
+			<img src="images/1.png">
+			<img src="images/2.png">
+			<img src="images/3.png">
+			<img src="images/4.png">
+			<img src="images/5.png">
+		</div>
+		<div class="box2">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<span id="btnone">&lt;</span>
+		<span id="btntwo">&gt;</span>
+	</div>
+</body>
+</html>
