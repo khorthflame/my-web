@@ -1,0 +1,29 @@
+*{margin:0;padding:0;}
+		.fa{height:200px;
+			width:400px;
+			margin: 20px auto;
+			 overflow: hidden; 
+			position: relative;  
+		}
+		.son{height:200px;
+			width:2400px;
+			}
+		img{  display: block;
+			float: left;
+			height:200px;
+			width:400px;}
+		/* img:first-child{margin-left:-400px;}  */
+		.span{position:absolute;
+			text-align: center;
+			width: 100%;
+		bottom: 20px;
+
+		}
+		.span span{display: inline-block;
+			height: 20px;
+			width: 20px;
+			border-radius: 100%; 
+			background: red;
+			opacity: 0.7;
+		}
+		.span span.current{opacity: 0.2;}
