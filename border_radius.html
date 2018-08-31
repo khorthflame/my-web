@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.and{height:500px;
+		width:500px; 
+		margin:100px auto;
+		position:relative;}
+		.head{width:100px;
+			height:50px;
+			background: lightgreen;
+			border-radius: 50px 50px 0 0;
+		}
+		.body{height: 100px;
+			width:100px;
+			background: lightgreen;
+			margin-top: 10px;
+			border-radius: 0 0 20px 20px;
+		}
+		.left{height:80px;
+			width:30px;
+			background: lightgreen;
+			position:absolute;
+			border-radius: 15px 15px;
+			left:-40px;
+			top:60px;}
+		.right{height:80px;
+		width:30px;
+		background: lightgreen;
+		position:absolute;
+		border-radius: 15px 15px;
+		left:110px;
+		top:60px;}
+		.foot1{
+			height: 50px;
+			width: 30px;
+			background: lightgreen;
+			position: absolute;
+			left: 17px;
+			top: 150px;
+			border-radius: 0 0 30px 30px;
+		}
+		.foot2{
+			height: 50px;
+			width: 30px;
+			background: lightgreen;
+			position: absolute;
+			left: 53px;
+			top: 150px;
+			border-radius: 0 0 30px 30px;
+		}
+		.span,.span1{display: inline-block;
+			height: 10px;
+			width:10px;
+			background: white;
+			left: 20px;
+			top: 15px;
+			position:absolute;
+			border-radius: 10px;
+		}
+	.span{
+			left: 70px;
+		}
+	.span2,.span3{
+		height: 30px;
+		display: inline-block;
+		width: 5px;
+		background: lightgreen;
+		position: absolute;
+		border-radius: 5px 5px 0 0;
+	}
+	.span2{transform:rotate(30deg);
+		top:-20px;
+		left:70px;}
+	.span3{transform:rotate(-30deg);
+		top:-20px;
+		left:25px;}
+	</style>
+</head>
+<body>
+  <div class="and">
+  	<span class="span1"></span>
+  	<span class="span"></span>
+  	<span class="span2"></span>
+  	<span class="span3"></span>
+	<div class="head"></div>
+	<div class="body"></div>
+	<div class="left"></div>
+	<div class="right"></div>
+	<div class="foot1"></div>
+	<div class="foot2"></div>
+   </div>
+</body>
+</html>
