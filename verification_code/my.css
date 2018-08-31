@@ -1,0 +1,14 @@
+a{color: black;
+		background: skyblue;
+	   	text-decoration: none;}
+	   a:hover{color:red;}
+	   span{border:1px solid red;
+			color: black;
+			display: inline-block;
+			height: 30px;
+			width: 100px;
+			font-family: '微软雅黑';
+			text-align: center;
+			line-height: 30px;
+			vertical-align: bottom;
+	      }

@@ -1,0 +1,17 @@
+var span1_obj = document.querySelector('.span1'); 
+		var input_obj = document.querySelector('input[type=text]');
+		function getNewCode(){
+			var newCode = [];
+		    var arr = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+			for(var i = 0;i<6;i++){
+				newCode[i]=arr[(parseInt(arr.length*Math.random()))];
+			}
+		    span1_obj.innerHTML = newCode.join('');
+		}
+		function checkCode(){ 
+			if(input_obj.value==span1_obj.innerText){
+				alert('验证成功');
+			}else{
+				alert('验证失败')
+			}
+		}
