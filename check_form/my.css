@@ -1,0 +1,14 @@
+form[name=login]{ 
+			width: 600px;
+			line-height: 26px;
+			 }
+		form[name=login] label{
+			display: inline-block;
+			width: 70px;
+		}
+		form[name=login] span{
+			display: inline-block;
+			width: 300px;height: 26px;
+			border:1px solid red;
+			float: right;
+		}

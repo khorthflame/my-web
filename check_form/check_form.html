@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="my.css">
+	<script src="../jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="my.js"></script>
+</head>
+<body>
+<form action="index.php" name="login">
+	<p>
+		<label>用户名:</label>
+		<input type="text" name="uname">
+		<span class="mess_1"></span>
+	</p>
+	<p>
+		<label>密码:</label>
+		<input type="password" name="upass">
+		<span class="mess_2"></span>
+	</p>
+	<p>
+		<label>确认密码:</label>
+		<input type="password" name="repass">
+		<span class="mess_3"></span>
+	</p>
+	<p class="pobj">
+		<label>性别:</label>
+		<input type="radio" name="sex" id='mal' value='0'> 男
+		<input type="radio" name="sex" id='fem' value='1'> 女
+		<input type="radio" name="sex" id='non' value='2'> 人妖
+		<span class="mess_4"></span>
+	</p>
+	<p>
+		<input type="submit" value="登录">
+	</p>
+</form>	
+</body>
+</html>
