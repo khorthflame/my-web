@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	   a{color: black;
+		background: skyblue;
+	   	text-decoration: none;}
+	   a:hover{color:red;}
+	   span{border:1px solid red;
+			color: black;
+			display: inline-block;
+			height: 30px;
+			width: 100px;
+			font-family: '微软雅黑';
+			text-align: center;
+			line-height: 30px;
+			vertical-align: bottom;
+	      }
+	      /* input[type=text]{display: none;} */
+	</style>
+</head>
+<body>
+	<span class="span1"></span>&nbsp;&nbsp;<a href="#" onclick="getNewCode()">点击获取验证码</a><br /><br /><input type="text" placeholder="请输入验证码"> <input type="submit" onclick="checkCode()">
+	<script>
+		var span1_obj = document.querySelector('.span1'); 
+		var input_obj = document.querySelector('input[type=text]');
+		function getNewCode(){
+			var newCode = [];
+		    var arr = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+			for(var i = 0;i<6;i++){
+				newCode[i]=arr[(parseInt(arr.length*Math.random()))];
+			}
+		    span1_obj.innerHTML = newCode.join('');
+		}
+		function checkCode(){ 
+			if(input_obj.value==span1_obj.innerText){
+				alert('验证成功');
+			}else{
+				alert('验证失败')
+			}
+		}
+	</script>
+</body>
+</html>
