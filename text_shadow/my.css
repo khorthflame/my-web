@@ -1,0 +1,17 @@
+.box{height: 200px;
+			width: 600px;
+			background: #8F8C8C;
+			margin: 20px auto;
+			font-size: 50px;
+			color:#8F8C8C;
+			font-family: '微软雅黑';
+			font-weight: 700;
+		}
+		.one{text-align: center;
+			line-height: 100px;
+			text-shadow:1px 1px 0 black,-1px -1px 0 white; 
+		}
+		.two{text-align: center;
+		line-height: 100px;
+		text-shadow:1px 1px 0 white,-1px -1px 0 black; 
+	}
