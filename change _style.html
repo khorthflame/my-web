@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str1 = '这是我的str，这是我的str';
+
+		function mark(str,keyWord,color){
+		  var reg = new RegExp(keyWord,'g');
+          return str.replace(reg,"<font style='background:"+color+"'>"+keyWord+"</font>");
+      }
+
+     document.write(mark(str1,'我的','red'));
+	</script>
+</body>
+</html>
