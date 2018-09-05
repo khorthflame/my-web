@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+    <script type="text/javascript">
+    	var arr1 = [1,2,5,4,4,5,7,7,8,5];
+    	function max(arr){
+    		for(var i=0,max=arr[0];i<arr.length;i++){
+    			if(max<arr[i]){
+    				max=arr[i];
+    			}
+    		}
+    		return max;
+    	}
+    	function min(arr){
+    		for(var i=0,min=arr[0];i<arr.length;i++){
+    			if(min>arr[i]){
+    				min=arr[i];
+    			}
+    		}
+    		return min;
+    	}
+    	console.log(max(arr1));
+    	console.log(min(arr1));
+    </script>
+</body>
+</html>
