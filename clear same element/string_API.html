@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str1 = 'abababcd';
+		//console.log(str1.charAt(1));
+		function cc(str){
+			var newStr = '';
+			for(var i=0;i<str.length;i++){
+				var char = str[i];
+				if(newStr.indexOf(char)==-1){
+					newStr+=char;
+				}
+			}
+			return newStr;
+		}
+		console.log(cc(str1));
+	</script>
+</body>
+</html>
