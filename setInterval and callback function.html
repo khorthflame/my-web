@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//输出一到五之间的数 5s的时间
+			var i = 0;
+	var t = setInterval(function(){
+			if(i==5){
+				clearInterval(t);
+			}
+			console.log(i);
+			i++;
+		}, 1000);
+	//这也是用了回调函数的机制
+	</script>
+</body>
+</html>
