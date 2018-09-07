@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj1 = {
+			name:'徐宏',
+			sex:'男',
+			act:function(food){
+				console.log('我是'+this.name+'性别'+this.sex+'喜欢的食物'+food);
+			},
+			end:function(){
+				console.log('你已经成功调用end方法')
+			}
+		}
+
+		obj1.end();
+		obj1.act('螃蟹');
+	</script>
+</body>
+</html>

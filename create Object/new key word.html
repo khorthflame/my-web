@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj1 = new Object();
+		    obj1.name = '徐宏';   //不能用this来代替obj1
+		    obj1.age = '23';
+		    obj1.end = function(){
+		    	console.log('我是'+this.name);
+		    }
+		 
+		obj1.end();
+		console.log(obj1.age);
+	</script>
+</body>
+</html>
