@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function person(name,age,eye){
+			this.name = name;
+			this.age = age;
+			this.eye = eye;
+			this.changeName = function(name){
+				this.name = name;
+				console.log(this.name);//宏
+				console.log('之前的名字'+this.name+'变成了'+name);//之前的名字宏变成了宏			
+			}
+		}
+		var person1 = new person('徐宏','23','black');
+		console.log(person1.name);//徐宏
+		person1.changeName('宏');
+		console.log(person1.name);//宏
+	</script>
+</body>
+</html>
