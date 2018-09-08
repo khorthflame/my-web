@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //这是原型函数
+            function animal(){
+                this.spacies = '动物',
+                animal.prototype.info = function(){
+                    console.log('info函数调用成功');
+                }
+             }        
+            // function cat(name,age){
+            //     this.name = name,
+            //     this.age = age
+            // }
+        //     cat.prototype = new animal();
+        //     var cat1 = new cat('小猫1',12);
+        //     console.log(cat1,cat1.spacies);//动物
+        //    cat1.info();//info函数调用成功
+     
+            function cat(name,age){
+                this.name = name,
+                this.age = age,
+                animal.apply(this)              
+            }
+            var cat2 = new cat('小猫1',12);
+            console.log(cat2);//cat {name: "小猫1", age: 12, spacies: "动物"}
+            cat2.info();//并不能调用 cat2里面没有继承prototype的info
+    </script>
+   
+</body>
+</html>
