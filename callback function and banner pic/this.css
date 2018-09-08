@@ -1,0 +1,13 @@
+         .box1 img{
+            width:100px;
+            height: 50px;
+            display: none;
+        }
+        .box1 img:first-child{display: block;}
+        span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            background: pink;
+        }
