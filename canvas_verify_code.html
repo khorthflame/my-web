@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #canvas{border:1px solid #ccc;/*background:lightyellow;*/
+  }
+  </style>
+</head>
+<body>
+<input type="text" id="txt">
+<canvas id='canvas' width="120" height="40"></canvas>
+<script>
+/*需求: 6位验证码(字母+数字) 点 线
+//点: arc(x,y,1,0,2*Math.PI)  x,y是随机数
+//线: moveTo(x,y)
+      lineTo(x,y)  x,y随机数
+//文字: fillText('文字',x,y); x,y随机数
+// 随机颜色: rgb(r,g,b)  r,g,b: 0-255
+*/
+
+//1)功能1:生成一个min,max返回的随机数
+// 返回值:随机数
+function getRandom(min,max){
+  // 30-80 (0-50)+30
+  return Math.floor(Math.random()*(max-min)+min);
+}
+
+//2)功能2:生成一个随机色
+// 返回值: rgb(r,g,b) 字符串类型
+function getColor(min,max){
+  var r = getRandom(min,max);
+  var g = getRandom(min,max);
+  var b = getRandom(min,max);
+  return 'rgb('+r+','+g+','+b+')';
+}
+
+//3)功能3:生成点
+function createPoints(context){
+  for(var i=0;i<=100;i++){
+    context.beginPath();//开始新路径
+    context.fillStyle = getColor(60,180);
+    context.arc(getRandom(0,120),getRandom(0,40),1,0,2*Math.PI);//画点
+    context.fill();//实际绘制
+    context.closePath();//闭合路径
+  }
+}
+
+//4)功能4:生成线条
+function createLines(context){
+  for(var i=0;i<6;i++){
+    context.beginPath();
+    context.moveTo(getRandom(0,120),getRandom(0,40));
+    context.lineTo(getRandom(0,120),getRandom(0,40));
+    context.strokeStyle=getColor(100,200);
+    context.stroke();
+    context.closePath();
+  }
+}
+
+//5)功能5:生成6位随机字符
+function createText(context){
+  var str = 'abcdefghijklmnopqrstuvwxyz1234567890';
+  code = '';//变量提升
+  for(var i=1;i<=6;i++){//6个
+    //取一个随机字符
+    var char =str[getRandom(0,str.length-1)];
+    code += char;
+    console.log(char);
+    //第一个字符 20-23 20*1+(1,3)
+    //第二个字符 40-45 20*2+(1,3)
+    //第三个字符 60-65 20*3+(1,3)
+    //第四个字符 80-83 20*4+(1,3)
+    context.beginPath();
+    var x = 15*i+getRandom(1,3);
+    var y = getRandom(20,32);
+    context.font = '18px Arial';
+    context.fillStyle = getColor(10,180);
+    //添加一个旋转
+    var deg = getRandom(-8,8);
+    context.rotate(deg*Math.PI/180);
+    context.fillText(char,x,y);
+    context.closePath();
+    //恢复一下
+    context.rotate(-deg*Math.PI/180);
+  }
+}
+
+//6)用户需求:综合函数
+function init(){
+  //调用相应的功能模块
+  //获取画布
+  var canvas = document.getElementById('canvas');
+  console.log(canvas);
+  //定义图形类型:2d
+  var context = canvas.getContext('2d');
+
+  //添加一个矩形块,大小同画布一样
+  context.fillStyle = 'lightyellow';
+  context.fillRect(0,0,120,40);
+
+  //具体绘制形状
+  //1)绘制点
+  createPoints(context);
+  //2)绘制线条
+  createLines(context);
+  //3)绘制文字
+  createText(context);
+}
+init();
+
+//验证效果: 必须获取图片上的验证码
+console.log('code值',code);
+
+var input_obj = document.getElementById('txt');
+input_obj.onblur = function(){
+  if(input_obj.value.toUpperCase() != code.toUpperCase()){
+    console.log('验证码错误,请重新输入!');
+  }
+}
+
+
+</script>
+</body>
+</html>
