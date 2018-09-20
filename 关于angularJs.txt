@@ -1,0 +1,21 @@
+关于angularJs的理解
+  1，首先，这是一个js文件，是一个JavaScript框架，跟jQuery的引用方式一样
+        里面包装了很多指令，可以通过表达式绑定数据到HTML上
+  2，怎么样使用
+        引用外部文件后：
+          1，定义ng-app,即定义应用的名称
+              可以在body标签上，<body ng-app='自定义名称'>，这其实指明了</body> 元素是 AngularJS 应用程序 的"所有者"。 
+           2,添加控制器
+             <body ng-controller='ctrl'></body>
+          3,定义app模块
+              var app = angular.module("app",[])
+          4，定义控制器app-controller,绑定数据
+	app.controller('ctrl',['$scope',function($scope){
+	$scope.属性=属性值;
+          }]
+
+  3，关于ng-model
+        <input type='text' ng-model = 'name'>
+    这是把input输入框的值绑定到scope的name变量中
+         如果不存在这个name变量，scope会创建name变量，其值为undefined
+        （可以理解为，这是angularJs中获取value值的表达式）
