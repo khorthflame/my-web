@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../agu/angular.min.js"></script>
+</head>
+<body ng-app='app'>
+    <div ng-controller = 'ctrl'>
+        <h1>这是angularjs</h1>
+        {{name}} {{age}} {{arr}} {{obj}} {{fn()}}<br>
+        我叫{{name}},今年{{age}}<br>
+        我叫{{stu.name}}今年{{stu.age}}是一个{{stu.gender == 'M'?'男':'女'}}
+        <div>
+        <img src="{{path}}" alt="">
+       </div>
+    </div>
+</body>
+<script>
+    // 创建模块
+   /* 第一个参数：字符串，为ng-app定义的模块的名称
+     第二个参数：数组，元素为字符串，表示该模块依赖的对象
+   
+   */
+    var app = angular.module('app',[]);
+    //创建控制器
+    /*
+        第一个参数：字符串，表示该控制器的名称
+        第二个参数：数组，数组中前面的元素为字符串，表示该字符串依赖的模块，最后一个元素为function，表示该控制器的功能
+    */
+    app.controller('ctrl',["$scope",function($scope){
+            //console.log('进入到ctrl控制器');
+            // $scope:是一个空对象
+            $scope.name = '张三';
+            $scope.age = 23;
+            $scope.arr = [1,2,3];
+            $scope.obj = {a:1,b:2};
+            $scope.fn = function(){
+                console.log('11');
+            }
+            //模拟从数据库中获取到的数据
+            var data = {name:'jack',age:22,gender:'M'}
+            $scope.stu = data;
+            //获取图片路径
+            $scope.path = '1.png';
+    }]);
+   // app.controller()
+</script>
+</html>

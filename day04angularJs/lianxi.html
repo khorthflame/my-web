@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../agu/angular.min.js'></script>
+    <style>
+     img{width: 300px;}
+     /* #red{background: red;} */
+     .bgc{
+         background-color:red;
+     }
+    </style>
+</head>
+
+<body ng-app='app'>
+    <div ng-controller='ctrl'>
+        <li>
+            <label for=""><input type="checkbox" value='one' ng-checked="label=='one'">one</label>
+            <label for=""><input type="checkbox" value="two" ng-checked="label=='two'">two</label>
+            <label for=""><input type="checkbox" value="three" ng-checked="label=='three'">three</label>
+        </li>
+        <li>
+            <img src={{path}} alt="">
+        </li>
+        <li>
+            <select name="" id="" ng-model='select'>
+                <option value="1">html</option>
+                <option value="2">css</option>
+                <option value="3">js</option>
+            </select>
+        </li>
+        <ul ng-switch='select'>
+            <li ng-switch-when='1'>html初级<br>html中级<br>html高级</li>
+            <li ng-switch-when='2'>css初级<br>css中级<br>css高级</li>
+            <li ng-switch-when='3'>js初级<br>js中级<br>js高级</li>
+        </ul>
+        
+        <li>{{num}}</li>
+        <li>{{obj}}</li>
+        <li>{{arr}}</li>
+        <li>{{string}}</li>
+         <li ng-repeat='k in arr'  ng-hide="$index==2">
+          <div ng-class='{bgc:$index==color}'>{{k}}</div>
+        </li> 
+        
+        
+    </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl',['$scope',function($scope){
+        $scope.label = 'two';
+        $scope.path = '../images/2.png';
+        $scope.num = 123;
+        $scope.string = 'abc';
+        $scope.obj = {a:1,b:2};
+        $scope.arr = ['aaa','bbb','ccc','ddd'];
+        $scope.color=1;
+    }])
+</script>
+
+</html>

@@ -1,0 +1,59 @@
+1,使用SSH方式关联远程仓库
+ 关联远程仓库有两种：HTTPS,SSH
+ 而HTTPS 在每次推送时都需要输入用户名和密码，比较麻烦
+ 配置SSH:
+    查看本机是否有密钥
+     密钥包含两个：公钥 私钥
+       创建生产密钥：
+         ssh-keygen -t rsa -C '邮箱地址'
+    打开公钥，复制里面的内容
+      点击公钥，复制里面的内容
+      点击github头像 -- settings--SSSH and  GPG keys --New SSH key --title 随意填写 --key里面粘贴公钥的内容--add SSH key
+    关联并推送：
+
+2，拉取数据
+   将远程仓库的内容下载到本地
+   1，先进入文件夹，将文件夹初始化为本地仓库
+     使用命令 git pull 远程仓库地址.git master
+   2,无需初始化本地仓库，，使用克隆命令
+      git clone 远程仓库地址
+      该命令下载的就是一个完整的仓库文件夹
+
+
+AngularJs
+  1,什么是angularjs？
+   是一个前端框架，AngularJs是以数据和逻辑为核心（驱动）的
+    案例1：
+      01_rumen.html
+      在文本框中输入数据，文本框的下方显示文本框中输入的数据
+  2,angularjs的表达式
+      {{表达式}}
+      表达式可以包含变量，算数运算，逻辑运算，关系运算，三目运算，字符串拼接
+    
+  3,设计模式MVC
+      M:Model  模型层，数据层，数据库进行操作
+      V:View   视图层，用于展示数据，一般通过html展示
+      C:Controller 控制层，用于模型层与视图层连接 
+  4,AngularJs的模块化概念（module)
+      angularJs构建一个应用程序是以模块化的方式组织的
+    1,引入angularjs文件
+    2，定义ng-app
+        定义应用名称
+        在body标签添加属性ng-app='app'
+        <body ng-app='app'></body>
+    3,定义模块
+        var app = angular.module('app',[]);
+    4,定义控制器
+        app.Controller('ctrl',['$scope',function($scope){
+
+        }])
+    编写视图（挖坑填坑）
+     练习：
+      1，新建html文件
+      2，定义模块，定义控制器
+      3，控制器中绑定数据
+         字符串，数字，数组，对象
+      4，在视图层将数据全部展示出来
+      5，显示数组中第一个元素
+      6，显示数组中key为name的值
+ 

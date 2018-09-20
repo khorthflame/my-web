@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../agu/angular.min.js'></script>
+</head>
+
+<body ng-app='app'>
+    <div ng-controller='ctrl'>
+    <h2>单向数据绑定</h2>
+    <p>在模型成获取数据后，由控制层绑定数据，发送给视图层（M--->V)</p>
+    {{msg}}
+    <P>双向数据绑定，从视图层获取数据 经由控制层逻辑处理之后 再发送给视图层（V-->M-->V)</P>
+    <input type="text" ng-model='str' ng-change='chg()'>
+    <div>{{newStr}}</div>
+    
+     </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl',['$scope',function($scope){
+        $scope.msg = '模型层绑定数据发送给视图层';
+        $scope.str;
+        $scope.chg=function(){
+            //console.log($scope.str);
+           $scope.newStr =  parseInt($scope.str)+1;
+        }
+}])
+</script>
+
+</html>

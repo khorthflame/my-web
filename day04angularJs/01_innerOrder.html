@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../agu/angular.min.js'></script>
+    <style>
+        #d{width: 100px;
+           height: 100px;
+            border:1px solid red;
+        }
+        .d1{
+            background: red;
+        }
+        #d2{width:100px;
+            height:100px;
+            border:1px solid blue;
+
+         }
+        .black{
+            background: black;
+        }
+        .blue{
+            background: blue;
+        }
+    </style>
+</head>
+
+<body ng-app='app'>
+    <div ng-include="'head.html'"></div>
+    <ul ng-controller = 'ctrl'>
+        <!-- ng-show可以取值为true或1，则显示元素，取值false或0，则隐藏元素 -->
+        <li ng-show=isShow>这是ng-show</li>
+        <li ng-hide='false'>这是ng-hide</li>
+        <li ng-if='true'>这是ng-if</li>
+        <!-- ng-hide和ng-show一样，取值相反 -->
+        <!-- <li>{{msg}}</li> -->
+        <li ng-bind = 'msg'></li>
+        <li>
+            <label><input type="radio" name='gender' value='M' ng-checked='sex=="M"'>男</label>
+            <label><input type="radio" name='gender' value='F' ng-checked='sex=="F"'>女</label>
+        </li>
+        <li>
+            <img ng-src={{path}} alt="">
+        </li>
+        <li ng-repeat = 'stu in stus track by $index'><!--从值变为下标遍历，重复就没事了-->
+            <!-- track by $index 当数组中有重复元素是，ng-repeat会出错，添加该语句，可以避免出错 -->
+        <!-- <li ng-repeat = '(k,stu) in stus'> -->
+           {{$index}}. {{stu}}
+           <!-- $index下标 -->
+        </li>
+        <li>
+            <div id='d' ng-class="{d1:color=='red'}"></div>
+            <div id ='d2' ng-class='{black:color==1,blue:color==2}'></div>
+        </li>
+        <li>   
+            <select  ng-model='val'>
+                <option value="1">html</option>
+                <option value="2">css</option>
+                <option value="3">js</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <br>
+        </li>
+        <li>
+            <ul  ng-switch='val'>
+                <li ng-switch-when='1'>html内容</li>
+                <li ng-switch-when='2'>css内容</li>
+                <li ng-switch-when='3'>js内容</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller('ctrl',['$scope',function($scope){
+        $scope.isShow = false;
+        $scope.msg = '模型层绑定的数据';
+        $scope.sex = 'F';
+        $scope.path = '../images/1.png';
+        $scope.stus = ['jacj','mike','lucy','rose','rose'];
+        $scope.color = '2';
+
+    }])
+</script>
+
+</html>
